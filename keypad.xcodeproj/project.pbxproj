@@ -15,6 +15,10 @@
 		570B96BD21D99A1600344B92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570B96BB21D99A1600344B92 /* LaunchScreen.storyboard */; };
 		570B96C821D99A1600344B92 /* keypadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B96C721D99A1600344B92 /* keypadTests.swift */; };
 		570B96D321D99A1600344B92 /* keypadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B96D221D99A1600344B92 /* keypadUITests.swift */; };
+		570B96E721D99BE500344B92 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B96E621D99BE500344B92 /* KeyboardViewController.swift */; };
+		570B96EB21D99BE500344B92 /* kor.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 570B96E421D99BE500344B92 /* kor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		570B96F121D99C3C00344B92 /* korView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570B96F021D99C3C00344B92 /* korView.xib */; };
+		570B96F321D9E12400344B92 /* KeypadBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B96F221D9E12400344B92 /* KeypadBtnView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +36,28 @@
 			remoteGlobalIDString = 570B96AB21D99A1500344B92;
 			remoteInfo = keypad;
 		};
+		570B96E921D99BE500344B92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 570B96A421D99A1500344B92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 570B96E321D99BE500344B92;
+			remoteInfo = kor;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		570B96EF21D99BE500344B92 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				570B96EB21D99BE500344B92 /* kor.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		570B96AC21D99A1500344B92 /* keypad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keypad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +74,11 @@
 		570B96CE21D99A1600344B92 /* keypadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keypadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		570B96D221D99A1600344B92 /* keypadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypadUITests.swift; sourceTree = "<group>"; };
 		570B96D421D99A1600344B92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570B96E421D99BE500344B92 /* kor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = kor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		570B96E621D99BE500344B92 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		570B96E821D99BE500344B92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570B96F021D99C3C00344B92 /* korView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = korView.xib; sourceTree = "<group>"; };
+		570B96F221D9E12400344B92 /* KeypadBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadBtnView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +103,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		570B96E121D99BE500344B92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +119,7 @@
 				570B96AE21D99A1500344B92 /* keypad */,
 				570B96C621D99A1600344B92 /* keypadTests */,
 				570B96D121D99A1600344B92 /* keypadUITests */,
+				570B96E521D99BE500344B92 /* kor */,
 				570B96AD21D99A1500344B92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +130,7 @@
 				570B96AC21D99A1500344B92 /* keypad.app */,
 				570B96C321D99A1600344B92 /* keypadTests.xctest */,
 				570B96CE21D99A1600344B92 /* keypadUITests.xctest */,
+				570B96E421D99BE500344B92 /* kor.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +167,17 @@
 			path = keypadUITests;
 			sourceTree = "<group>";
 		};
+		570B96E521D99BE500344B92 /* kor */ = {
+			isa = PBXGroup;
+			children = (
+				570B96E621D99BE500344B92 /* KeyboardViewController.swift */,
+				570B96E821D99BE500344B92 /* Info.plist */,
+				570B96F021D99C3C00344B92 /* korView.xib */,
+				570B96F221D9E12400344B92 /* KeypadBtnView.swift */,
+			);
+			path = kor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +188,12 @@
 				570B96A821D99A1500344B92 /* Sources */,
 				570B96A921D99A1500344B92 /* Frameworks */,
 				570B96AA21D99A1500344B92 /* Resources */,
+				570B96EF21D99BE500344B92 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				570B96EA21D99BE500344B92 /* PBXTargetDependency */,
 			);
 			name = keypad;
 			productName = keypad;
@@ -184,6 +236,23 @@
 			productReference = 570B96CE21D99A1600344B92 /* keypadUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		570B96E321D99BE500344B92 /* kor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 570B96EC21D99BE500344B92 /* Build configuration list for PBXNativeTarget "kor" */;
+			buildPhases = (
+				570B96E021D99BE500344B92 /* Sources */,
+				570B96E121D99BE500344B92 /* Frameworks */,
+				570B96E221D99BE500344B92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kor;
+			productName = kor;
+			productReference = 570B96E421D99BE500344B92 /* kor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +274,9 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 570B96AB21D99A1500344B92;
 					};
+					570B96E321D99BE500344B92 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = 570B96A721D99A1500344B92 /* Build configuration list for PBXProject "keypad" */;
@@ -223,6 +295,7 @@
 				570B96AB21D99A1500344B92 /* keypad */,
 				570B96C221D99A1600344B92 /* keypadTests */,
 				570B96CD21D99A1600344B92 /* keypadUITests */,
+				570B96E321D99BE500344B92 /* kor */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +322,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		570B96E221D99BE500344B92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570B96F121D99C3C00344B92 /* korView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +362,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		570B96E021D99BE500344B92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570B96E721D99BE500344B92 /* KeyboardViewController.swift in Sources */,
+				570B96F321D9E12400344B92 /* KeypadBtnView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +383,11 @@
 			isa = PBXTargetDependency;
 			target = 570B96AB21D99A1500344B92 /* keypad */;
 			targetProxy = 570B96CF21D99A1600344B92 /* PBXContainerItemProxy */;
+		};
+		570B96EA21D99BE500344B92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 570B96E321D99BE500344B92 /* kor */;
+			targetProxy = 570B96E921D99BE500344B92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -435,6 +530,7 @@
 		570B96D821D99A1600344B92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TK5T4T8UH2;
@@ -453,6 +549,7 @@
 		570B96D921D99A1600344B92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TK5T4T8UH2;
@@ -550,6 +647,44 @@
 			};
 			name = Release;
 		};
+		570B96ED21D99BE500344B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TK5T4T8UH2;
+				INFOPLIST_FILE = kor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ian.keypad.kor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		570B96EE21D99BE500344B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TK5T4T8UH2;
+				INFOPLIST_FILE = kor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ian.keypad.kor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +720,15 @@
 			buildConfigurations = (
 				570B96DE21D99A1600344B92 /* Debug */,
 				570B96DF21D99A1600344B92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		570B96EC21D99BE500344B92 /* Build configuration list for PBXNativeTarget "kor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				570B96ED21D99BE500344B92 /* Debug */,
+				570B96EE21D99BE500344B92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
