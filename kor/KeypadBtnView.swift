@@ -21,7 +21,7 @@ class KeypadBtnView: UIView {
     let POSITION_RIGHT = 3
     let POSITION_DOWN = 4
     
-    let MOVING_POINT = CGFloat(15)
+    let MOVING_POINT = CGFloat(30)
     
     var textDocumentProxy: UITextDocumentProxy?
     
@@ -53,13 +53,67 @@ class KeypadBtnView: UIView {
                 let lastX = lastPoint.x
                 let lastY = lastPoint.y
                 
+                var isLeft = false
+                var isRight = false
+                var isTop = false
+                var isDown = false
+                
+                var movingX: CGFloat = 0
+                var movingY: CGFloat = 0
+                
                 if(firstX! - lastX)>MOVING_POINT { // left
-                    position = POSITION_LEFT
+//                    position = POSITION_LEFT
+                    movingX = firstX! - lastX
+                    isLeft = true
                 } else if (firstX! - lastX)<(-MOVING_POINT) { // right
-                    position = POSITION_RIGHT
-                } else if (firstY! - lastY) > MOVING_POINT { // down
-                    position = POSITION_TOP
+//                    position = POSITION_RIGHT
+                    movingX = -(firstX! - lastX)
+                    isRight = true
+                }
+                
+                if (firstY! - lastY) > MOVING_POINT { // down
+//                    position = POSITION_TOP
+                    movingY = firstY! - lastY
+                    isTop = true
                 } else if (firstY! - lastY)<(-MOVING_POINT) { //Top
+//                    position = POSITION_DOWN
+                    movingY = -(firstY! - lastY)
+                    isDown = true
+                }
+                
+                if isLeft {
+                    position = POSITION_LEFT
+                    if(isTop) {
+                        if(movingX < movingY) {
+                            position = POSITION_TOP
+                        } else {
+                            position = POSITION_LEFT
+                        }
+                    } else if(isDown) {
+                        if(movingX < movingY) {
+                            position = POSITION_DOWN
+                        } else {
+                            position = POSITION_LEFT
+                        }
+                    }
+                } else if isRight {
+                    position = POSITION_RIGHT
+                    if(isTop) {
+                        if(movingX < movingY) {
+                            position = POSITION_TOP
+                        } else {
+                            position = POSITION_RIGHT
+                        }
+                    } else if(isDown) {
+                        if(movingX < movingY) {
+                            position = POSITION_DOWN
+                        } else {
+                            position = POSITION_RIGHT
+                        }
+                    }
+                } else if isTop {
+                    position = POSITION_TOP
+                } else if isDown {
                     position = POSITION_DOWN
                 }
             }
