@@ -21,6 +21,8 @@ class KeypadBtnView: UIView {
     let POSITION_RIGHT = 3
     let POSITION_DOWN = 4
     
+    let LONG_PRESS_CHECK = 1.0
+    
     let MOVING_POINT = CGFloat(30)
     
     var textDocumentProxy: UITextDocumentProxy?
@@ -29,11 +31,20 @@ class KeypadBtnView: UIView {
     
     var delegate: KeypadBtnProtocol?
     
+    var isLongPress = false
+    
+    var beganStamp: Double?
+    var endStamp: Double?
+    
     // MARK: Touch event
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isLongPress = false
         if (restorationIdentifier) != nil {
             firstPoint = touches.first?.location(in: self)
+            beganStamp = touches.first?.timestamp
+            print("151515 began =\(touches.first?.timestamp)")
         }
+        self.backgroundColor = UIColor.darkGray
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -43,11 +54,17 @@ class KeypadBtnView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let id = restorationIdentifier {
             
-            var position = POSITION_0;
+            var position = POSITION_0
             var returnStr: String? = ""
-            
+            print("151515 end =\(touches.first?.timestamp)")
             if let lastPoint = touches.first?.location(in: self) {
             
+                endStamp = touches.first?.timestamp
+                
+                if(endStamp! - beganStamp! > LONG_PRESS_CHECK) {
+                    isLongPress = true;
+                }
+                
                 let firstX = firstPoint?.x
                 let firstY = firstPoint?.y
                 let lastX = lastPoint.x
@@ -262,16 +279,61 @@ class KeypadBtnView: UIView {
                 }
                 break
             case "12":
-                if position == POSITION_0 {
-                    returnStr = ""
-                } else if position == POSITION_LEFT {
-                    returnStr = "ㅕ"
+                if position == POSITION_LEFT {
+                    if(isLongPress) {
+                        returnStr = "ㅖ"
+                    } else {
+                        returnStr = "ㅕ"
+                    }
                 } else if position == POSITION_TOP {
                     returnStr = "ㅛ"
                 } else if position == POSITION_RIGHT {
-                    returnStr = "ㅑ"
+                    if(isLongPress) {
+                        returnStr = "ㅒ"
+                    } else {
+                        returnStr = "ㅑ"
+                    }
                 } else if position == POSITION_DOWN {
                     returnStr = "ㅠ"
+                }
+                break
+            case "symbol1":
+                if position == POSITION_0 {
+                    returnStr = "?"
+                } else if position == POSITION_LEFT {
+                    returnStr = "+"
+                } else if position == POSITION_TOP {
+                    returnStr = "!"
+                } else if position == POSITION_RIGHT {
+                    returnStr = "?"
+                } else if position == POSITION_DOWN {
+                    returnStr = "="
+                }
+                break
+            case "symbol2":
+                if position == POSITION_0 {
+                    returnStr = "."
+                } else if position == POSITION_LEFT {
+                    returnStr = ","
+                } else if position == POSITION_TOP {
+                    returnStr = "\""
+                } else if position == POSITION_RIGHT {
+                    returnStr = "."
+                } else if position == POSITION_DOWN {
+                    returnStr = "'"
+                }
+                break
+            case "symbol3":
+                if position == POSITION_0 {
+                    returnStr = "/"
+                } else if position == POSITION_LEFT {
+                    returnStr = "@"
+                } else if position == POSITION_TOP {
+                    returnStr = ":"
+                } else if position == POSITION_RIGHT {
+                    returnStr = "/"
+                } else if position == POSITION_DOWN {
+                    returnStr = ";"
                 }
                 break
             default:
@@ -282,14 +344,20 @@ class KeypadBtnView: UIView {
             delegate?.input(str: returnStr!)
             
         }
+        
+        self.backgroundColor = UIColor.black
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        self.backgroundColor = UIColor.black
     }
     
     // MARK: set Protocol
     func setProtocol(delegate: KeypadBtnProtocol) {
         self.delegate = delegate
     }
+    
+//    func setLongPress(isLongPress: Bool) {
+//        self.isLongPress = isLongPress
+//    }
 }

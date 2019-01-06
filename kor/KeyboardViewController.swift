@@ -40,8 +40,15 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     @IBOutlet weak var tenth: KeypadBtnView!
     @IBOutlet weak var eleventh: KeypadBtnView!
     @IBOutlet weak var twelveth: KeypadBtnView!
+    @IBOutlet weak var symbol1: KeypadBtnView!
+    @IBOutlet weak var symbol2: KeypadBtnView!
+    @IBOutlet weak var symbol3: KeypadBtnView!
 
     @IBOutlet var nextKeyboardButton: UIButton!
+    
+    @IBAction func longPress(_ sender: UIView) {
+        
+    }
     
     @IBAction func pressed(_ sender: UIButton) {
 //        var id = sender.restorationIdentifier
@@ -80,22 +87,6 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Perform custom UI setup here
-//        self.nextKeyboardButton = UIButton(type: .system)
-//
-//        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-//        self.nextKeyboardButton.sizeToFit()
-//        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        
-//        self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-        
-//        self.view.addSubview(self.nextKeyboardButton)
-        
-//        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-//        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        
-//        self.nextKeyboardButton.addTarget(self, action: #selector(UIInputViewController.advanceToNextInputMode), for: .touchUpInside)
-        
         self.loadInterface()
     }
     
@@ -118,8 +109,12 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     
     // MARK: Keypad protocol
     func input(str: String) {
+        if(str == "") {
+            return
+        }
         var isMo = false
         var isJa = false
+        var isAdd = false
 //        var isFirst = true
 //        var isMiddle = false
 //        var isLast = false
@@ -218,6 +213,71 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
                             lastText = " "
                             break
                         }
+                    } else if(isMo) { // 입력된 값이 모음인 경우 마지막 글자의 종성과 조합
+                        isAdd = true
+                        switch korArray[2] {
+//                            " ", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ" // 종성 28개
+                        case 3: // ㄳ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄱ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅅ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 5: // ㄵ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄴ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅈ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 6: // ㄶ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄴ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅎ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 9: // ㄺ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㄱ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 10: // ㄻ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅁ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 11: // ㄼ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅂ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 12: // ㄽ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅅ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 13: // ㄾ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅌ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 14: // ㄿ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅍ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 15: // ㅀ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㄹ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅎ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        case 18: // ㅄ
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: lastSet.index(of: "ㅂ")!))
+                            completeText = getKorCode(chosung: firstSet.index(of: "ㅅ")!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        default:
+                            (textDocumentProxy as UIKeyInput).deleteBackward()
+                            (textDocumentProxy as UIKeyInput).insertText(getKorCode(chosung: korArray[0], jungsung: korArray[1], jongsung: 0))
+                            completeText = getKorCode(chosung: firstSet.index(of: lastSet[korArray[2]])!, jungsung: midleSet.index(of: str)!, jongsung: 0)
+                            break
+                        }
                     } else {
                         lastText = " "
                     }
@@ -231,7 +291,9 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
             (textDocumentProxy as UIKeyInput).insertText(str)
             prevText = str.last
         } else {
-            (textDocumentProxy as UIKeyInput).deleteBackward()
+            if(!isAdd) {
+                (textDocumentProxy as UIKeyInput).deleteBackward()
+            }
             (textDocumentProxy as UIKeyInput).insertText(completeText)
             prevText = completeText.last
             completeText = " "
@@ -260,7 +322,9 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
         tenth.setProtocol(delegate: self)
         eleventh.setProtocol(delegate: self)
         twelveth.setProtocol(delegate: self)
-        first.setProtocol(delegate: self)
+        symbol1.setProtocol(delegate: self)
+        symbol2.setProtocol(delegate: self)
+        symbol3.setProtocol(delegate: self)
     }
     
     func getKorCode(chosung: Int, jungsung: Int, jongsung: Int) -> String {
