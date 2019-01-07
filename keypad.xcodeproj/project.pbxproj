@@ -281,10 +281,10 @@
 			};
 			buildConfigurationList = 570B96A721D99A1500344B92 /* Build configuration list for PBXProject "keypad" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 570B96A321D99A1500344B92;

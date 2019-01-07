@@ -258,7 +258,7 @@ class KeypadBtnView: UIView {
                 } else if position == POSITION_LEFT {
                     returnStr = "ㅊ"
                 } else if position == POSITION_TOP {
-                    returnStr = "ㅍ"
+                    returnStr = "ㅉ"
                 } else if position == POSITION_RIGHT {
                     returnStr = "ㅊ"
                 } else if position == POSITION_DOWN {
