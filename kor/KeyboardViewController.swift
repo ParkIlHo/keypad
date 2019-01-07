@@ -16,6 +16,8 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     var prevText: Character!
     var completeText: String!
     
+    var delLongPressRecognizer: UILongPressGestureRecognizer!
+    
     let firstSet = [ // ㄱ = 12593
         "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ" // 초성 19개
     ]
@@ -27,6 +29,9 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     let lastSet = [
         " ", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ" // 종성 28개
     ]
+    
+    var isDelLongPress = false
+    var delCount = 0;
     
     @IBOutlet weak var first: KeypadBtnView!
     @IBOutlet weak var second: KeypadBtnView!
@@ -43,12 +48,10 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     @IBOutlet weak var symbol1: KeypadBtnView!
     @IBOutlet weak var symbol2: KeypadBtnView!
     @IBOutlet weak var symbol3: KeypadBtnView!
+    
+    @IBOutlet weak var del: UIButton!
 
     @IBOutlet var nextKeyboardButton: UIButton!
-    
-    @IBAction func longPress(_ sender: UIView) {
-        
-    }
     
     @IBAction func pressed(_ sender: UIButton) {
 //        var id = sender.restorationIdentifier
@@ -56,7 +59,9 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
         if let id = sender.restorationIdentifier as! String? {
             switch id {
             case "del" :
-                (textDocumentProxy as UIKeyInput).deleteBackward()
+                print("151515 : delete press")
+                self.delete()
+//                (textDocumentProxy as UIKeyInput).deleteBackward()
                 break
             case "space":
                 (textDocumentProxy as UIKeyInput).insertText(" ")
@@ -77,6 +82,28 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
         }
     }
     
+    @IBAction func delLongPress(_ sender: UILongPressGestureRecognizer) {
+        //        print("151515 Long Press\(sender.state)")
+        if sender.state == UIGestureRecognizer.State.began {
+            isDelLongPress = true
+            self.delAsync()
+            print("151515 Long Press Began")
+        } else if sender.state == UIGestureRecognizer.State.ended {
+            isDelLongPress = false
+            delCount = 0
+            print("151515 Long Press Ended")
+        }
+        else if sender.state == UIGestureRecognizer.State.cancelled {
+            isDelLongPress = false
+            delCount = 0
+            print("151515 Long Press cancelled")
+        } else if sender.state == UIGestureRecognizer.State.failed {
+            isDelLongPress = false
+            delCount = 0
+            print("151515 Long Press failed")
+        }
+    }
+    
     // MARK: override method
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -86,6 +113,9 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delLongPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(delLongPress))
+        self.delLongPressRecognizer.minimumPressDuration = 1.0
         
         self.loadInterface()
     }
@@ -325,6 +355,8 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
         symbol1.setProtocol(delegate: self)
         symbol2.setProtocol(delegate: self)
         symbol3.setProtocol(delegate: self)
+        
+        self.del.addGestureRecognizer(delLongPressRecognizer)
     }
     
     func getKorCode(chosung: Int, jungsung: Int, jongsung: Int) -> String {
@@ -346,4 +378,41 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
 //        let tmp = text.
         return returnArray
     }
+    
+    func delete() {
+        if let last = textDocumentProxy.documentContextBeforeInput {
+            lastText = last.last
+            let lastTextValue = (lastText.unicodeScalars.first?.value)!
+            if(lastText != prevText) {
+                (textDocumentProxy as UIKeyInput).deleteBackward()
+            } else if(lastTextValue < UInt32(44032) || lastTextValue > UInt32(55203)) { // 한글이 아닐 경우. 자음모음이 조합되지 않은 경우에도 포함
+                (textDocumentProxy as UIKeyInput).deleteBackward()
+            } else {
+                let splitText = splitKor(text: String(lastText))
+                if(splitText[2] == 0) {
+                    completeText = firstSet[splitText[0]]
+                } else {
+                    completeText = getKorCode(chosung: splitText[0], jungsung: splitText[1], jongsung: 0)
+                }
+                (textDocumentProxy as UIKeyInput).deleteBackward()
+                (textDocumentProxy as UIKeyInput).insertText(completeText)
+                prevText = completeText.last
+                completeText = " "
+            }
+        }
+    }
+    
+    func delAsync() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.delCount = self.delCount + 1
+            if self.isDelLongPress {
+                for _ in 0..<self.delCount {
+                    (self.textDocumentProxy as UIKeyInput).deleteBackward()
+                }
+                self.delAsync()
+            }
+            print("151515 Long Press Async")
+        })
+    }
 }
+

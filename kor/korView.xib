@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardViewController" customModule="kor">
             <connections>
+                <outlet property="del" destination="b5g-cP-EZn" id="h11-IW-w57"/>
                 <outlet property="eighth" destination="VEO-RY-Ahs" id="nSW-uE-AO8"/>
                 <outlet property="eleventh" destination="z5V-OS-9x1" id="cc6-BB-8SM"/>
                 <outlet property="fifth" destination="c5j-kq-UwN" id="ied-4y-TjT"/>
@@ -36,7 +37,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="1" translatesAutoresizingMaskIntoConstraints="NO" id="lmf-ee-Bo5" userLabel="ㄱ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="1" y="1" width="100" height="41"/>
+                    <rect key="frame" x="1" y="1" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅋ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgL-Fu-wiN">
@@ -79,7 +80,7 @@
                     <accessibility key="accessibilityConfiguration" hint="tttttttt"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="2" translatesAutoresizingMaskIntoConstraints="NO" id="Z6T-4n-PLp" userLabel="ㄴ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="102" y="1" width="100" height="41"/>
+                    <rect key="frame" x="102" y="1" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㄴ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jj-ui-D2r">
@@ -121,7 +122,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="3" translatesAutoresizingMaskIntoConstraints="NO" id="MyN-14-kNY" userLabel="ㅢ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="203" y="1" width="100" height="41"/>
+                    <rect key="frame" x="203" y="1" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅢ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wq-YQ-n9i">
@@ -163,7 +164,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="4" translatesAutoresizingMaskIntoConstraints="NO" id="gt3-Gh-hvJ" userLabel="ㄹ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="1" y="43" width="100" height="41"/>
+                    <rect key="frame" x="1" y="44" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㄹ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aru-dU-i8u">
@@ -205,7 +206,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="5" translatesAutoresizingMaskIntoConstraints="NO" id="c5j-kq-UwN" userLabel="ㅁ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="102" y="43" width="100" height="41"/>
+                    <rect key="frame" x="102" y="44" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅁ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8R-zy-oHN">
@@ -247,7 +248,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="6" translatesAutoresizingMaskIntoConstraints="NO" id="yIk-bp-4dB" userLabel="ㅣ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="203" y="43" width="100" height="41"/>
+                    <rect key="frame" x="203" y="44" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mug-mX-33S">
@@ -289,7 +290,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="symbol1" translatesAutoresizingMaskIntoConstraints="NO" id="clu-0U-Lqw" userLabel="symbol1" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="304" y="43" width="70" height="41"/>
+                    <rect key="frame" x="304" y="44" width="70" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7O2-FO-lop">
@@ -324,7 +325,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="7" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-G1-Kq9" userLabel="ㅅ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="1" y="85" width="100" height="41"/>
+                    <rect key="frame" x="1" y="87" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅅ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-7Q-D2w">
@@ -366,7 +367,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="8" translatesAutoresizingMaskIntoConstraints="NO" id="VEO-RY-Ahs" userLabel="ㅇ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="102" y="85" width="100" height="41"/>
+                    <rect key="frame" x="102" y="87" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅇ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNl-NB-h0V">
@@ -408,7 +409,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="9" translatesAutoresizingMaskIntoConstraints="NO" id="Yna-XT-Qxf" userLabel="ㅡ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="203" y="85" width="100" height="41"/>
+                    <rect key="frame" x="203" y="87" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅡ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKx-Wy-I8o" userLabel="ㅡ">
@@ -450,7 +451,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="symbol2" translatesAutoresizingMaskIntoConstraints="NO" id="UkN-Mo-4Ir" userLabel="symbol2" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="304" y="85" width="70" height="41"/>
+                    <rect key="frame" x="304" y="87" width="70" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVj-Qc-dj8" userLabel=".">
@@ -485,7 +486,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ria-4Q-fIp" userLabel="ㅈ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="1" y="127" width="100" height="41"/>
+                    <rect key="frame" x="1" y="130" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅈ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a81-wm-ZHF" userLabel="ㅈ">
@@ -527,7 +528,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="11" translatesAutoresizingMaskIntoConstraints="NO" id="z5V-OS-9x1" userLabel="ㅎ" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="102" y="127" width="100" height="41"/>
+                    <rect key="frame" x="102" y="130" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ㅎ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMV-tx-3gS" userLabel="ㅎ">
@@ -569,7 +570,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="12" translatesAutoresizingMaskIntoConstraints="NO" id="1OC-e7-Ypd" userLabel=".." customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="203" y="127" width="100" height="41"/>
+                    <rect key="frame" x="203" y="130" width="100" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=".." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSi-5O-rEp" userLabel="..">
@@ -611,7 +612,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="symbol3" translatesAutoresizingMaskIntoConstraints="NO" id="4OG-ta-ph2" userLabel="symbol3" customClass="KeypadBtnView" customModule="kor" customModuleProvider="target">
-                    <rect key="frame" x="304" y="127" width="70" height="41"/>
+                    <rect key="frame" x="304" y="130" width="70" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pL-LB-pql" userLabel="/">
@@ -646,24 +647,24 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-x6-hAm">
-                    <rect key="frame" x="1" y="169" width="50" height="41"/>
+                    <rect key="frame" x="1" y="173" width="50" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="del" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5g-cP-EZn">
-                    <rect key="frame" x="304" y="1" width="70" height="41"/>
+                    <rect key="frame" x="304" y="1" width="70" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Del">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="pressed:" destination="-1" eventType="touchUpInside" id="64M-cz-2GQ"/>
+                        <action selector="pressed:" destination="-1" eventType="touchUpInside" id="Bc8-T5-gqi"/>
                         <action selector="pressed:" destination="-1" eventType="touchUpOutside" id="EvK-O0-XR1"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="change_keyboard" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ha-jl-dtH">
-                    <rect key="frame" x="52" y="169" width="50" height="41"/>
+                    <rect key="frame" x="52" y="173" width="50" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Next">
@@ -674,7 +675,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="space" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-Ld-Ja0">
-                    <rect key="frame" x="103" y="169" width="169" height="41"/>
+                    <rect key="frame" x="103" y="173" width="169" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Space">
@@ -686,7 +687,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="other" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beq-7E-HVd" userLabel="ㅋㅋㅋ">
-                    <rect key="frame" x="273" y="169" width="50" height="41"/>
+                    <rect key="frame" x="273" y="173" width="50" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="ㅋㅋㅋ">
@@ -697,7 +698,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="enter" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoY-iy-PBT" userLabel="Enter">
-                    <rect key="frame" x="324" y="169" width="50" height="41"/>
+                    <rect key="frame" x="324" y="173" width="50" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Enter">
@@ -710,7 +711,7 @@
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="HfS-2f-ONC"/>
+            <viewLayoutGuide key="safeArea" id="1rf-4p-siG"/>
             <point key="canvasLocation" x="29.600000000000001" y="119.1904047976012"/>
         </view>
     </objects>
