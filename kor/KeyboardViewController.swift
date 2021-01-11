@@ -401,7 +401,7 @@ class KeyboardViewController: UIInputViewController, KeypadBtnProtocol {
             }
         }
     }
-    
+    // test
     func delAsync() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.delCount = self.delCount + 1
